@@ -1,6 +1,6 @@
 import React from "react";
 
-const Finished = ({ points, maxPossiblePoints, highscore }) => {
+const Finished = ({ points, maxPossiblePoints, highscore, dispatch }) => {
   const percentage = (points / maxPossiblePoints) * 100;
 
   let emoji;
@@ -16,6 +16,12 @@ const Finished = ({ points, maxPossiblePoints, highscore }) => {
         ({Math.ceil(percentage)}%) {emoji}
       </p>
       <p className="highscore">(Highscore: {highscore} points)</p>
+      <button
+        className="btn btn-ui"
+        onClick={() => dispatch({ type: "restart" })}
+      >
+        Restart
+      </button>
     </>
   );
 };
